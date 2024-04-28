@@ -19,12 +19,16 @@ public class slimeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector2.Distance(transform.position, target.transform.position);
+      pathFind();
 
-        Vector2 direction = target.transform.position - transform.position;
-        direction.Normalize();
+    }
 
-        transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, slimeSpeed * Time.deltaTime);
+    void pathFind() {
+      distance = Vector2.Distance(transform.position, target.transform.position);
 
+      Vector2 direction = target.transform.position - transform.position;
+      direction.Normalize();
+
+      transform.position = Vector2.MoveTowards(this.transform.position, target.transform.position, slimeSpeed * Time.deltaTime);
     }
 }
