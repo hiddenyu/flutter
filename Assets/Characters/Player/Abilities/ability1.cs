@@ -7,7 +7,6 @@ public class ability1 : MonoBehaviour
 {
     public GameObject projectile1;
     public int damage;
-    public int fallOffRange;
     public int projectileForce;
 
     void Start() {

@@ -123,7 +123,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.009849906, y: -0.06506606}
+  m_Offset: {x: 0.00045073032, y: -0.024179641}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -134,7 +134,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.09998059, y: 0.010021299}
+  m_Size: {x: 0.08118224, y: 0.091794156}
   m_EdgeRadius: 0
 --- !u!95 &1682437535140007975
 Animator:
@@ -168,6 +168,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d599e1ede0a0e964c8e091923ae7df1c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  movementFilter:
+    useTriggers: 0
+    useLayerMask: 0
+    useDepth: 0
+    useOutsideDepth: 0
+    useNormalAngle: 0
+    useOutsideNormalAngle: 0
+    layerMask:
+      serializedVersion: 2
+      m_Bits: 0
+    minDepth: 0
+    maxDepth: 0
+    minNormalAngle: 0
+    maxNormalAngle: 0
+  collisionOffset: 0.05
   target: {fileID: 0}
   slimeSpeed: 0.25
   minDist: 0.16
