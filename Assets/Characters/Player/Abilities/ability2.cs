@@ -19,7 +19,9 @@ public class ability2 : MonoBehaviour
     }
 
     void Update() {
-        tryDash();
+        if (gameManager.Instance.currentState == gameManager.gameStates.RUNNING) {
+            tryDash();
+        }
     }
 
     void tryDash() {

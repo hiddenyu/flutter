@@ -14,7 +14,9 @@ public class projectile1 : MonoBehaviour
     }
 
     void Update() {
-        checkFallOff();
+        if (gameManager.Instance.currentState == gameManager.gameStates.RUNNING && player != null) {
+            checkFallOff();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {

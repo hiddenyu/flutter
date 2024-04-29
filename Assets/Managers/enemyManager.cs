@@ -6,24 +6,25 @@ using UnityEngine.Tilemaps;
 
 public class enemyManager : MonoBehaviour
 {
-    public int waveNumber = 1;
-    int enemyCount = 0;
-    float spawnRate = 1f;
+    int enemyCount;
+    float spawnRate = 0.5f;
     public GameObject enemyPrefab;
     public GameObject enemyMother;
     public GameObject player;
     public Tilemap map;
     Vector3 mapSize;
+    gameManager gm;
 
-    // Start is called before the first frame update
     void Start()
     {
-        map.CompressBounds();
-        mapSize = map.size;
+        gm = gameManager.Instance;
+        if (gm.currentState == gameManager.gameStates.RUNNING) {
+            enemyCount = gm.getEnemyCount();
 
-        enemyCount = waveNumber * 5;
-
-        StartCoroutine(spawnRoutine());
+            map.CompressBounds();
+            mapSize = map.size;
+            StartCoroutine(spawnRoutine());
+        }
     }
 
     IEnumerator spawnRoutine() {
@@ -31,11 +32,10 @@ public class enemyManager : MonoBehaviour
             spawnEnemy();
             yield return new WaitForSeconds(spawnRate);
         }
-
     }
 
     void spawnEnemy() {
-        GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(0, 0.16f*(mapSize.x-1)), Random.Range(-0.16f*(mapSize.y-1), 0), 0), Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(0, 0.16f*(mapSize.x-2)), Random.Range(-0.16f*(mapSize.y-2), 0), 0), Quaternion.identity);
         newEnemy.transform.parent = enemyMother.transform;
     }
 }

@@ -10,6 +10,7 @@ public class slimeScript : MonoBehaviour
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     public float collisionOffset = 0.05f;
 
+    GameObject player;
     public Transform target;
     bool canMove = true;
     public int slimeDmg = 1;
@@ -21,14 +22,19 @@ public class slimeScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-		  target = GameObject.FindWithTag ("Player").GetComponent<Transform>();
+      player = GameObject.Find("Player");
+      if (player != null) {
+        target = player.GetComponent<Transform>();
+      }
       rb = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-      pathFind();
+      if (gameManager.Instance.currentState == gameManager.gameStates.RUNNING && player != null) {
+        pathFind();
+      }
     }
 
     private bool TryMove(Vector2 direction) {

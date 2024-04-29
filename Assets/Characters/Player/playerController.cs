@@ -26,7 +26,6 @@ public class playerController : MonoBehaviour
 
     void Update() {
         if (canMove) {
-
             // move player if movement is not 0
             if (movementInput != Vector2.zero) {
                 bool canMove = TryMove(movementInput);
@@ -46,6 +45,7 @@ public class playerController : MonoBehaviour
             
             else {
                 animator.SetBool("isMoving", false);
+                rb.velocity = new Vector2(0, 0);
             }
 
             // set the sprite direction
