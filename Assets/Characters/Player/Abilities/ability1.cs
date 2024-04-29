@@ -17,6 +17,7 @@ public class ability1 : MonoBehaviour
         if (gameManager.Instance.currentState == gameManager.gameStates.RUNNING) {
             pc.canMove = false;
             GameObject proj = Instantiate(projectile, transform.position, Quaternion.identity);
+            proj.transform.parent = GameObject.Find("AbilityMother").transform;
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 curPosition = transform.position;
             Vector2 direction = (mousePosition - curPosition).normalized;

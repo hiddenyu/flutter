@@ -11,9 +11,8 @@ GameObject:
   - component: {fileID: 7444153684475122946}
   - component: {fileID: 7743065950004118881}
   - component: {fileID: 1743892023888929856}
-  - component: {fileID: 4009392608140039911}
-  - component: {fileID: 302874537329854783}
   - component: {fileID: -3809055038171398124}
+  - component: {fileID: 6959221621666580724}
   m_Layer: 0
   m_Name: ability3
   m_TagString: Untagged
@@ -73,16 +72,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!1971053207 &4009392608140039911
-SpriteShapeRenderer:
+--- !u!114 &-3809055038171398124
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3206234326295256757}
   m_Enabled: 1
-  m_CastShadows: 1
-  m_ReceiveShadows: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 03f1ee435a5b8b748a02d89c02ab791f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 3
+  distance: 0
+--- !u!212 &6959221621666580724
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3206234326295256757}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
   m_DynamicOccludee: 1
   m_StaticShadowCaster: 0
   m_MotionVectors: 1
@@ -93,7 +106,6 @@ SpriteShapeRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -115,93 +127,14 @@ SpriteShapeRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Color: {r: 0.754717, g: 0.37308648, b: 0.7336597, a: 1}
+  m_Sprite: {fileID: 21300000, guid: 18e3643dadc3e8c4f82b4ba91073850e, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 0.96, y: 0.96}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_ShapeTexture: {fileID: 0}
-  m_Sprites: []
-  m_LocalAABB:
-    m_Center: {x: -0.0029280484, y: -0.0008928776, z: 0}
-    m_Extent: {x: 0.4761275, y: 0.48039684, z: 0}
---- !u!114 &302874537329854783
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3206234326295256757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 90539df1cd5704abcb25fec9f3f5f84b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Spline:
-    m_IsOpenEnded: 0
-    m_ControlPoints:
-    - position: {x: -0.33941185, y: -0.33941174, z: 0}
-      leftTangent: {x: 0.15819764, y: -0.16381755, z: -0}
-      rightTangent: {x: -0.19877672, y: 0.20583817, z: 0}
-      mode: 1
-      height: 1
-      bevelCutoff: 0
-      bevelSize: 0
-      spriteIndex: 0
-      corner: 1
-      m_CornerMode: 1
-    - position: {x: -0.36611062, y: 0.30428195, z: 0}
-      leftTangent: {x: -0.13910393, y: -0.16691951, z: -0}
-      rightTangent: {x: 0.21336532, y: 0.25603038, z: 0}
-      mode: 1
-      height: 1
-      bevelCutoff: 0
-      bevelSize: 0
-      spriteIndex: 0
-      corner: 1
-      m_CornerMode: 1
-    - position: {x: 0.31861472, y: 0.3552912, z: 0}
-      leftTangent: {x: -0.17009987, y: 0.14437628, z: -0}
-      rightTangent: {x: 0.1816934, y: -0.15421656, z: 0}
-      mode: 1
-      height: 1
-      bevelCutoff: 0
-      bevelSize: 0
-      spriteIndex: 0
-      corner: 1
-      m_CornerMode: 1
-    - position: {x: 0.3457354, y: -0.32873222, z: 0}
-      leftTangent: {x: 0.19175296, y: 0.18234776, z: -0}
-      rightTangent: {x: -0.23942973, y: -0.22768608, z: 0}
-      mode: 1
-      height: 1
-      bevelCutoff: 0
-      bevelSize: 0
-      spriteIndex: 0
-      corner: 1
-      m_CornerMode: 1
-  m_SpriteShape: {fileID: 11400000, guid: f24cddf7c09a6442abbce710a6fd7397, type: 2}
-  m_FillPixelPerUnit: 100
-  m_StretchTiling: 1
-  m_SplineDetail: 16
-  m_AdaptiveUV: 1
-  m_StretchUV: 0
-  m_WorldSpaceUV: 0
-  m_CornerAngleThreshold: 30
-  m_ColliderDetail: 16
-  m_ColliderOffset: 0
-  m_UpdateCollider: 1
-  m_OptimizeCollider: 1
-  m_OptimizeGeometry: 1
-  m_EnableTangents: 0
-  m_GeometryCached: 0
-  m_UTess2D: 0
---- !u!114 &-3809055038171398124
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3206234326295256757}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 03f1ee435a5b8b748a02d89c02ab791f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  m_SpriteSortPoint: 0

@@ -17,7 +17,8 @@ public class ability3 : MonoBehaviour
     void OnAOE() {
         if (gameManager.Instance.currentState == gameManager.gameStates.RUNNING && pc.canAOE) {
             pc.canMove = false;
-            GameObject aoe = Instantiate(aoeField, transform.position, Quaternion.identity);
+            GameObject aoe = Instantiate(aoeField, new Vector3(transform.position.x, (float)(transform.position.y - 0.08), transform.position.z), Quaternion.identity);
+            aoe.transform.parent = GameObject.Find("AbilityMother").transform;
             Destroy(aoe, spellTime);
             Invoke("unlockMovement", spellTime);
             pc.canAOE = false;

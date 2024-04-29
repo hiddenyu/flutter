@@ -14,6 +14,11 @@ public class startNewWave : MonoBehaviour
         player.transform.position = new Vector2(2, -1);
         player.GetComponent<playerController>().canAOE = true;
 
+        GameObject am = GameObject.Find("AbilityMother");
+        foreach(Transform child in am.transform) {
+            Destroy(child.gameObject);
+        }
+
         enemyManager em = GameObject.Find("EnemyManager").GetComponent<enemyManager>();
         em.enemyCount = gameManager.Instance.getEnemyCount();
         _ = StartCoroutine(em.spawnRoutine());
