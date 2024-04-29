@@ -14,7 +14,7 @@ public class projectile1 : MonoBehaviour
     }
 
     void Update() {
-        if (gameManager.Instance.currentState == gameManager.gameStates.RUNNING && player != null) {
+        if (player != null && gameManager.Instance.currentState == gameManager.gameStates.RUNNING) {
             checkFallOff();
         }
     }

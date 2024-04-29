@@ -25,43 +25,44 @@ public class playerController : MonoBehaviour
     }
 
     void Update() {
-        if (canMove) {
-            // move player if movement is not 0
-            if (movementInput != Vector2.zero) {
-                bool canMove = TryMove(movementInput);
+        if (gameManager.Instance.currentState == gameManager.gameStates.RUNNING) {
+            if (canMove) {
+                // move player if movement is not 0
+                if (movementInput != Vector2.zero) {
+                    bool canMove = TryMove(movementInput);
 
-                // if there are collisions, check x and y directions separately
-                if (!canMove) {
-                    // try to move with x direction
-                    canMove = TryMove(new Vector2(movementInput.x, 0));
-                }
-                if (!canMove) {
-                    // try to move with y direction
-                        canMove = TryMove(new Vector2(0, movementInput.y));
+                    // if there are collisions, check x and y directions separately
+                    if (!canMove) {
+                        // try to move with x direction
+                        canMove = TryMove(new Vector2(movementInput.x, 0));
                     }
+                    if (!canMove) {
+                        // try to move with y direction
+                            canMove = TryMove(new Vector2(0, movementInput.y));
+                        }
 
-                animator.SetBool("isMoving", canMove);
+                    animator.SetBool("isMoving", canMove);
+                }
+                
+                else {
+                    animator.SetBool("isMoving", false);
+                    rb.velocity = new Vector2(0, 0);
+                }
+
+                // set the sprite direction
+                // if going left, flip the sprite
+                if (movementInput.x < 0) {
+                    spriteRenderer.flipX = true;
+                }
+                else if (movementInput.x > 0) {
+                    spriteRenderer.flipX = false;
+                }
             }
-            
             else {
-                animator.SetBool("isMoving", false);
                 rb.velocity = new Vector2(0, 0);
-            }
 
-            // set the sprite direction
-            // if going left, flip the sprite
-            if (movementInput.x < 0) {
-                spriteRenderer.flipX = true;
-            }
-            else if (movementInput.x > 0) {
-                spriteRenderer.flipX = false;
             }
         }
-        else {
-            rb.velocity = new Vector2(0, 0);
-
-        }
-        
     }
 
     private bool TryMove(Vector2 direction) {
@@ -95,7 +96,9 @@ public class playerController : MonoBehaviour
     }
 
     void OnFire() {
-        animator.SetTrigger("swordAttack");
+        if (gameManager.Instance.currentState == gameManager.gameStates.RUNNING) {
+            animator.SetTrigger("swordAttack");
+        }
     }
 
     public void lockMovement() {

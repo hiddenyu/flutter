@@ -24,8 +24,9 @@ public class gameManager : MonoBehaviour
         }
     }
 
-    [SerializeField] private int curWave = 1;
-    [SerializeField] private int waveEnemyCount;
+    public int curWave = 1;
+    public int waveEnemyCount;
+    public bool nextWaveStarted = false;
 
     public int getEnemyCount() {
         waveEnemyCount = (int)(System.MathF.Pow(2, (float)(0.5 * curWave)) + 10);
@@ -39,6 +40,7 @@ public class gameManager : MonoBehaviour
     public enum gameStates {
         START,
         RUNNING,
+        NEWWAVE,
         RESPAWN,
         PAUSED
     }

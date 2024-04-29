@@ -1,12 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
-public class respawnButton : MonoBehaviour
+public class newWaveButton : MonoBehaviour
 {
     void Update() {
-        if (gameManager.Instance.currentState == gameManager.gameStates.RESPAWN) {
+        if (gameManager.Instance.currentState == gameManager.gameStates.NEWWAVE) {
             gameObject.SetActive(true);
         }
         else {
