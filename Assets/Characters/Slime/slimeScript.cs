@@ -5,12 +5,14 @@ using UnityEngine;
 public class slimeScript : MonoBehaviour
 {
     Rigidbody2D rb;
+
     public ContactFilter2D movementFilter;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
     public float collisionOffset = 0.05f;
 
     public Transform target;
     bool canMove = true;
+    public int slimeDmg = 1;
     public float slimeSpeed = 0.75f;
     public float minDist = 0.16f;
     private float distance;
@@ -36,7 +38,7 @@ public class slimeScript : MonoBehaviour
                 direction,
                 movementFilter,
                 castCollisions,
-                slimeSpeed * Time.fixedDeltaTime + collisionOffset
+                slimeSpeed * Time.fixedDeltaTime
             );
 
             // if there are no collisions
@@ -53,6 +55,12 @@ public class slimeScript : MonoBehaviour
     }
     }
 
+    private void OnTriggerEnter2D(Collider2D collision) {
+      if (collision.name == "Player") {
+          collision.GetComponent<characterHealth>().changeHealth(slimeDmg);
+      }
+    }
+
   void pathFind() {
       distance = Vector2.Distance(transform.position, target.transform.position);
 
@@ -60,8 +68,7 @@ public class slimeScript : MonoBehaviour
       direction.Normalize();
 
       if (canMove) {
-
-            // move player if movement is not 0
+            // move if movement is not 0
             if (direction != Vector2.zero) {
                 bool canMove = TryMove(direction);
 

@@ -4,16 +4,13 @@ using UnityEngine;
 
 public class projectile1 : MonoBehaviour
 {
-    CircleCollider2D cc;
     GameObject player;
     public int damage = 1;
-    public int fallOffRange = 10;
+    public float fallOffRange = 2.5f;
     public float distance;
 
     void Start() {
         player = GameObject.Find("Player");
-        cc = GetComponent<CircleCollider2D>();
-        cc.isTrigger = true;
     }
 
     void Update() {
@@ -21,7 +18,6 @@ public class projectile1 : MonoBehaviour
     }
 
     private void OnTriggerEnter2D(Collider2D collision) {
-        print(collision.name);
         if (collision.name != "Player") {
             if (collision.GetComponent<characterHealth>() != null) {
                 collision.GetComponent<characterHealth>().changeHealth(damage);

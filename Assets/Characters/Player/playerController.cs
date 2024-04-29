@@ -5,18 +5,18 @@ using UnityEngine.InputSystem;
 
 public class playerController : MonoBehaviour
 {
-    bool canMove = true;
-    public float moveSpeed = 1f;
+    public bool canMove = true;
+    public float moveSpeed = 2.5f;
     public ContactFilter2D movementFilter;
     public float collisionOffset = 0.05f;
+    public Vector2 lastDirection;
 
     public Vector2 movementInput;
-    Rigidbody2D rb;
+    public Rigidbody2D rb;
     SpriteRenderer spriteRenderer;
     Animator animator;
     List<RaycastHit2D> castCollisions = new List<RaycastHit2D>();
 
-    // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -24,7 +24,7 @@ public class playerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    private void FixedUpdate() {
+    void Update() {
         if (canMove) {
 
             // move player if movement is not 0
@@ -57,6 +57,10 @@ public class playerController : MonoBehaviour
                 spriteRenderer.flipX = false;
             }
         }
+        else {
+            rb.velocity = new Vector2(0, 0);
+
+        }
         
     }
 
@@ -67,21 +71,23 @@ public class playerController : MonoBehaviour
                 direction,
                 movementFilter,
                 castCollisions,
-                moveSpeed * Time.fixedDeltaTime + collisionOffset
+                moveSpeed * Time.fixedDeltaTime
             );
 
             // if there are no collisions
             if (count == 0) {
-                rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+                // rb.MovePosition(rb.position + direction * moveSpeed * Time.fixedDeltaTime);
+                rb.velocity = direction * moveSpeed;
+                lastDirection = direction;
                 return true;
             }
             else {
                 return false;
             }
         }
-    else {
-        return false;
-    }
+        else {
+            return false;
+        }
     }
 
     void OnMove(InputValue movementValue) {

@@ -35,7 +35,7 @@ public class enemyManager : MonoBehaviour
     }
 
     void spawnEnemy() {
-        GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(0, 0.16f*mapSize.x), Random.Range(-0.16f*mapSize.y, 0), 0), Quaternion.identity);
+        GameObject newEnemy = Instantiate(enemyPrefab, new Vector3(Random.Range(0, 0.16f*(mapSize.x-1)), Random.Range(-0.16f*(mapSize.y-1), 0), 0), Quaternion.identity);
         newEnemy.transform.parent = enemyMother.transform;
     }
 }

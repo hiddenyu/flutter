@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 9088546172780552735}
   - component: {fileID: 2978782696532477412}
   - component: {fileID: 6572163613741380132}
+  - component: {fileID: 2418989713935157920}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -214,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d772929000c6da642a842ffa8986bccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 1.25
   movementFilter:
     useTriggers: 0
     useLayerMask: 0
@@ -230,7 +231,9 @@ MonoBehaviour:
     minNormalAngle: 0
     maxNormalAngle: 0
   collisionOffset: 0.02
+  lastDirection: {x: 0, y: 0}
   movementInput: {x: 0, y: 0}
+  rb: {fileID: 0}
 --- !u!114 &6572163613741380132
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,5 +248,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile1: {fileID: 8366056351843784127, guid: 9e52b304237e99247b576c695c3bc7f3, type: 3}
   damage: 1
-  fallOffRange: 10
   projectileForce: 2
+--- !u!114 &2418989713935157920
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057085978121541773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 737dee2205259314b97d9cad98b0b052, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dashSpeed: 3
+  dashTime: 0.25
