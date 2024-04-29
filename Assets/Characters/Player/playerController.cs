@@ -60,9 +60,14 @@ public class playerController : MonoBehaviour
                 }
             }
             else {
+                animator.SetBool("isMoving", false);
                 rb.velocity = new Vector2(0, 0);
 
             }
+        }
+        else {
+            animator.SetBool("isMoving", false);
+            rb.velocity = new Vector2(0, 0);
         }
     }
 
