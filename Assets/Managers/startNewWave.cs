@@ -12,6 +12,7 @@ public class startNewWave : MonoBehaviour
 
         GameObject player = GameObject.Find("Player");
         player.transform.position = new Vector2(2, -1);
+        player.GetComponent<playerController>().canAOE = true;
 
         enemyManager em = GameObject.Find("EnemyManager").GetComponent<enemyManager>();
         em.enemyCount = gameManager.Instance.getEnemyCount();

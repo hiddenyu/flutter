@@ -15,11 +15,12 @@ public class ability3 : MonoBehaviour
     }
 
     void OnAOE() {
-        if (gameManager.Instance.currentState == gameManager.gameStates.RUNNING) {
+        if (gameManager.Instance.currentState == gameManager.gameStates.RUNNING && pc.canAOE) {
             pc.canMove = false;
             GameObject aoe = Instantiate(aoeField, transform.position, Quaternion.identity);
             Destroy(aoe, spellTime);
             Invoke("unlockMovement", spellTime);
+            pc.canAOE = false;
         }
     }
 

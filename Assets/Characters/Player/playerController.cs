@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class playerController : MonoBehaviour
 {
+    public bool canAOE = true;
     public bool canMove = true;
     public float moveSpeed = 2.5f;
     public ContactFilter2D movementFilter;

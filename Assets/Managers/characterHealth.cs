@@ -8,7 +8,6 @@ public class characterHealth : MonoBehaviour
     public int curHealth;
     GameObject player;
 
-    // Start is called before the first frame update
     void Start()
     {
         curHealth = maxHealth;
@@ -21,14 +20,6 @@ public class characterHealth : MonoBehaviour
 
         if (curHealth <= 0) {
             Destroy(gameObject);
-        }
-    }
-
-    void Update() {
-        if (transform.parent == player) {
-            if (curHealth == 0) {
-                gameManager.Instance.currentState = gameManager.gameStates.RESPAWN;
-            }
         }
     }
 }

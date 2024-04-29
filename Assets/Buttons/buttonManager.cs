@@ -9,12 +9,14 @@ public class buttonManager : MonoBehaviour
     GameObject rb;
     GameObject enemyMother;
     GameObject nwb;
+    healthText ht;
 
     void Start() {
         player = GameObject.Find("Player");
         rb = GameObject.Find("RespawnButton");
         enemyMother = GameObject.Find("EnemyMother");
         nwb = GameObject.Find("NewWaveButton");
+        ht = GameObject.Find("HealthLeft").GetComponent<healthText>();
     }
 
     void Update()
@@ -26,8 +28,12 @@ public class buttonManager : MonoBehaviour
     }
 
     void checkRespawnState() {
-        if (player == null) {
+        if (player != null) {
+            ht.livesLeft = player.GetComponent<characterHealth>().curHealth;
+        }
+        else {
             gameManager.Instance.currentState = gameManager.gameStates.RESPAWN;
+            ht.livesLeft = 0;
         }
     }
 
