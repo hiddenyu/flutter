@@ -6,8 +6,7 @@ using UnityEngine.InputSystem;
 public class ability1 : MonoBehaviour
 {
     playerController pc;
-    public GameObject projectile1;
-    public int damage;
+    public GameObject projectile;
     public int projectileForce;
 
     void Start() {
@@ -17,11 +16,11 @@ public class ability1 : MonoBehaviour
     void OnFire() {
         if (gameManager.Instance.currentState == gameManager.gameStates.RUNNING) {
             pc.canMove = false;
-            GameObject projectile = Instantiate(projectile1, transform.position, Quaternion.identity);
+            GameObject proj = Instantiate(projectile, transform.position, Quaternion.identity);
             Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 curPosition = transform.position;
             Vector2 direction = (mousePosition - curPosition).normalized;
-            projectile.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
+            proj.GetComponent<Rigidbody2D>().velocity = direction * projectileForce;
         }
     }
 }

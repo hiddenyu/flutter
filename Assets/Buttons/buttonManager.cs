@@ -9,7 +9,6 @@ public class buttonManager : MonoBehaviour
     GameObject rb;
     GameObject enemyMother;
     GameObject nwb;
-    int prevWave = 1;
 
     void Start() {
         player = GameObject.Find("Player");
@@ -20,8 +19,6 @@ public class buttonManager : MonoBehaviour
 
     void Update()
     {
-        print(gameManager.Instance.curWave);
-        print(gameManager.Instance.getEnemyCount());
         checkRespawnState();
         updateRespawnButton();
         checkWaveState();

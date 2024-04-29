@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2978782696532477412}
   - component: {fileID: 6572163613741380132}
   - component: {fileID: 2418989713935157920}
+  - component: {fileID: 2717138461587344166}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -215,6 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d772929000c6da642a842ffa8986bccd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canMove: 1
   moveSpeed: 1.25
   movementFilter:
     useTriggers: 0
@@ -246,7 +248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3b240f7ce386f474dbff3952c661f6b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectile1: {fileID: 8366056351843784127, guid: 9e52b304237e99247b576c695c3bc7f3, type: 3}
+  projectile: {fileID: 8366056351843784127, guid: 9e52b304237e99247b576c695c3bc7f3, type: 3}
   damage: 1
   projectileForce: 2
 --- !u!114 &2418989713935157920
@@ -263,3 +265,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   dashSpeed: 3
   dashTime: 0.25
+--- !u!114 &2717138461587344166
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1057085978121541773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adc7e1e98b89de1459a3e44f1ba21648, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  aoeField: {fileID: 3206234326295256757, guid: 48bf46043b3bf3a44a2f5eada9df6042, type: 3}
+  damage: 3

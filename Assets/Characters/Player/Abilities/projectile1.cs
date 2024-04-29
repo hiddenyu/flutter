@@ -24,7 +24,6 @@ public class projectile1 : MonoBehaviour
             if (collision.GetComponent<characterHealth>() != null) {
                 collision.GetComponent<characterHealth>().changeHealth(damage);
                 Destroy(gameObject);
-
             }
         }
     }

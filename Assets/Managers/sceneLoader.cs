@@ -12,6 +12,9 @@ public class sceneLoader : MonoBehaviour
         }
         else if (sceneName == "startMenu") {
             gameManager.Instance.currentState = gameManager.gameStates.START;
+            gameManager.Instance.curWave = 1;
+            gameManager.Instance.nextWaveStarted = false;
+
         }
         SceneManager.LoadScene(sceneName);
     }
